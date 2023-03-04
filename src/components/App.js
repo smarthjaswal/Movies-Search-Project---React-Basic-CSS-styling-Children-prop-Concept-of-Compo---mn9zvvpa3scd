@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 import "../styles/App.css";
-import { movies } from "../utils/movieList";
+import { movies } from "../src/utils/movieList";
 
 const App = () => {
     const [inputValue, setInputValue] = useState("");
     const [results, setResult] = useState(null);
-const x="";
     function handleClick(e) {
-        var a = inputValue.toUpperCase();
-        for(var i=0;i<movies.length;i++){
-            var b = movies[i].title.toUpperCase();
-            if(a===b){
-                x = movies[i].title;
-            }
-           
-            }
-        
-    }
+        e.preventDefault();
+        const a = inputValue.toLowerCase();
+        const d = movies.filter((movie) =>
+            movie.title.toLowerCase().includes(a)
+        );
+        setResult(d.map((movie) => movie.title));
 
+    }
     function handleChange(e) {
-    setInputValue(e.target.value)
+        setInputValue(e.target.value)
     }
 
     return (
@@ -38,7 +34,7 @@ const x="";
             <div id="result">
                 {results &&
                     results.map((movie) => (
-                        <div className="movie">{x}</div>
+                        <div className="movie">{movie}</div>
                     ))}
             </div>
         </div>
