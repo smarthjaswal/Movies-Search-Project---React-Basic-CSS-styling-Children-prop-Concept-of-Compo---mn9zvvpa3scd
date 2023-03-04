@@ -7,8 +7,10 @@ const App = () => {
     const [results, setResult] = useState(null);
 const x="";
     function handleClick(e) {
+        var a = inputValue.toUpperCase();
         for(var i=0;i<movies.length;i++){
-            if(movies[i].title===inputValue){
+            var b = movies[i].title.toUpperCase();
+            if(a===b){
                 x = movies[i].title;
             }
            
