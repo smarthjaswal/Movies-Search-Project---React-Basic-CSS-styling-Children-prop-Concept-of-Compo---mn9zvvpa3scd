@@ -7,11 +7,11 @@ const App = () => {
     const [results, setResult] = useState(null);
     function handleClick(e) {
         const a = inputValue.toLowerCase();
-        const d = movies.filter((movie) =>
-            movie.title.toLowerCase().includes(a)
-        );
-        setResult(d.map((movie) => movie.title));
-
+         for(var i=0;i<movies.length;i++){
+          if(movies[i].title.toUpperCase()===a){
+          setResult(movies[i].title);
+          }
+         }
     }
     function handleChange(e) {
         setInputValue(e.target.value)
