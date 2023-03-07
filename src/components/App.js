@@ -6,7 +6,6 @@ const App = () => {
     const [inputValue, setInputValue] = useState("");
     const [results, setResult] = useState(null);
     function handleClick(e) {
-        e.preventDefault();
         const a = inputValue.toLowerCase();
         const d = movies.filter((movie) =>
             movie.title.toLowerCase().includes(a)
